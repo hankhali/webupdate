@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareq Riaz - Resizable Rare Rings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .extra-info {
+            display: flex;
+            align-items: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .extra-info a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .logo-container {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .logo-container img {
+            width: 150px;
+        }
+
+        .right-icons {
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+
+        .right-icons a {
+            text-decoration: none;
+            color: #666;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+
+        .right-icons img {
+            margin-left: 10px;
+            width: 20px;
+        }
+
+        /* Navigation Bar Styling */
+        nav {
+            padding: 10px 50px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0d47a1;
+        }
+
+        /* Hero Section with Video Background */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .hero-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* Fallback image for slow connections */
+        .hero-section img {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .hero-content .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #0d47a1;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .hero-content .btn:hover {
+            background-color: #082b72;
+            transform: scale(1.05);
+        }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0d47a1;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .floating-cta:hover {
+            background-color: #082b72;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            align-items: center;
+            padding: 80px 50px;
+            background-color: #ffffff;
+        }
+
+        .about-section img {
+            width: 30%;
+            margin-right: 50px;
+            border-radius: 10px;
+        }
+
+        .about-section .about-text {
+            max-width: 60%;
+        }
+
+        .about-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2rem;
+            color: #0d47a1;
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #0d47a1;
+        }
+
+        /* Featured Products Section */
+        .featured-products {
+            padding: 50px 50px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .featured-products h2 {
+            font-size: 2rem;
+            color: #0d47a1;
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .product {
+            max-width: 30%;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .product p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            padding: 50px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .quiz-section h2 {
+            font-size: 2rem;
+            color: #0d47a1;
+            margin-bottom: 40px;
+        }
+
+        .quiz-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .quiz-section .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #0d47a1;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .quiz-section .btn:hover {
+            background-color: #082b72;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d47a1;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="extra-info">
+            <a href="index-en.html">English</a>
+            <span class="separator">|</span>
+            <a href="index-ar.html">العربية</a>
+        </div>
+        
+        <div class="logo-container">
+            <img src="TR Logo-2.jpg" alt="Tareq Riaz Logo">
+        </div>
+        <div class="right-icons">
+            <a href="#">Login</a> |
+            <a href="#">0</a> <img src="path_to_wishlist_icon.png" alt="Wishlist Icon">
+            <img src="path_to_cart_icon.png" alt="Cart Icon">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">New In</a>
+        <a href="#">Jewellery</a>
+        <a href="#">Watches</a>
+        <a href="#">Contact us</a>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <video autoplay muted loop>
+            <source src="Screen Recording 2024-08-23 at 6.05.57 PM.mov" type="video/mp4">
+            <!-- Fallback image if video does not load -->
+            <img src="fallback.jpg" alt="Spring/Summer 2024 Collection">
+        </video>
+        <div class="hero-content">
+            <h1>Spring/Summer 2024</h1>
+            <p>Embrace the art of self-expression</p>
+            <a href="#" class="btn">Shop now</a>
+            <a href="#" class="btn">Discover more</a>
+        </div>
+    </section>
+
+    <!-- Floating CTA Button -->
+    <a href="#" class="floating-cta">Explore Collection</a>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <img src="Screen%20Shot%202024-08-23%20at%205.38.11%20PM.png" alt="Jeweler Image">
+        <div class="about-text">
+            <h2>Our Vision</h2>
+            <p>Each of our pieces encapsulates a fusion of creativity, innovation, and precision. The mind-boggling intricacies of our patented designs, with their concealed mechanisms and expandable features, speak volumes about the dedication poured into crafting something truly distinctive.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            "These rings are a masterpiece of craftsmanship! The resizable feature is not only innovative but also makes them perfect for gifting."
+            <div class="testimonial-author">— Sarah M.</div>
+        </div>
+        <div class="testimonial">
+            "I was amazed by the quality and precision of these designs. Truly unique pieces that stand out in every setting."
+            <div class="testimonial-author">— John D.</div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="products-grid">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Classic Resizable Ring</h3>
+                <p>$1200</p>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Luxury Gold Band</h3>
+                <p>$1800</p>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Modern Minimalist Ring</h3>
+                <p>$950</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <h2>Find Your Perfect Ring</h2>
+        <p>Take our quick quiz to discover the ring that best matches your style and personality.</p>
+        <a href="#" class="btn">Start the Quiz</a>
+    </section>
+
+    <!-- Disqus Comment Section -->
+    <section>
+        <h2>Join the Discussion</h2>
+        <div id="disqus_thread"></div>
+    </section>
+
+    <!-- Disqus Embed Script -->
+    <script>
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://tareq-riaz.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Resizable Rare Rings. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
