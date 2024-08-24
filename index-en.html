@@ -160,24 +160,25 @@
 
         /* Floating CTA Button */
         .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0d47a1;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 3;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Changed from right: 20px; to left: 20px; */
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
 
-        .floating-cta:hover {
-            background-color: #082b72;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
+.floating-cta:hover {
+    background-color: #082b72;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
 
         /* About Section */
         .about-section {
@@ -309,14 +310,69 @@
             transform: scale(1.05);
         }
 
-        /* Footer */
+        /* Disqus Section */
+        #disqus_section {
+            display: none; /* Initially hidden */
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+
+        #disqus_thread {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 50px auto;
+            max-width: 800px;
+        }
+
+        /* Footer Styling */
         footer {
-            background-color: #0d47a1;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
+            background-color: #f9f9f9;
+            padding: 40px 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            text-align: left;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links h4 {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #666;
             font-size: 1rem;
-            margin-top: 50px;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #0d47a1;
+        }
+
+        footer p {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 1rem;
+            color: #666;
         }
     </style>
 </head>
@@ -418,9 +474,15 @@
     </section>
 
     <!-- Disqus Comment Section -->
-    <section>
-        <h2>Join the Discussion</h2>
-        <div id="disqus_thread"></div>
+    <section id="disqus_section">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #0d47a1; margin-bottom: 20px;">Join the Conversation</h2>
+            <div style="height: 3px; width: 50px; background-color: #0d47a1; margin: 20px auto;"></div>
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">
+                We value your thoughts and opinions. Share your insights or ask a question about our products!
+            </p>
+        </div>
+        <div id="disqus_thread" style="max-width: 800px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
     </section>
 
     <!-- Disqus Embed Script -->
@@ -432,12 +494,71 @@
             (d.head || d.body).appendChild(s);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" style="color: #0d47a1;">comments powered by Disqus.</a></noscript>
 
     <!-- Footer -->
+    <!-- Updated Footer -->
     <footer>
+        <div class="footer-links">
+            <div>
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Stores</h4>
+                <ul>
+                    <li><a href="#">Stores</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Track Your Order</h4>
+                <ul>
+                    <li><a href="#">Track Your Order</a></li>
+                </ul>
+            </div>
+            <!-- Contact Us Section with Live Chat -->
+            <div>
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="comments.html" target="_blank">Share Your Opinion</a></li> <!-- This link will open a new tab with the Disqus page -->
+                    <!-- <li><a href="#" onclick="Tawk_API.toggle(); return false;">Chat with Us</a></li> Live Chat button under Contact Us -->
+                </ul>
+            </div>
+        </div>
         <p>&copy; 2024 Resizable Rare Rings. All Rights Reserved.</p>
     </footer>
+
+    <!-- Tawk.to Script for Live Chat -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/66c9e0c6ea492f34bc09ab5e/1i629c2d3';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+
+    <!-- JavaScript to Show Disqus Section -->
+    <script>
+        function showDisqus() {
+            document.getElementById('disqus_section').style.display = 'block';
+            document.getElementById('disqus_section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>
