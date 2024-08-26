@@ -10,14 +10,33 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
+            background: url('_ (2) copy.jpeg') no-repeat center center fixed;
+            background-size: cover;
             padding: 50px;
+            color: #0d47a1;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 87, 155, 0.15);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        header img {
+            height: 120px;
+            margin-right: 20px;
+            filter: drop-shadow(3px 3px 5px rgba(0, 87, 155, 0.3));
         }
 
         h1 {
@@ -25,6 +44,8 @@
             font-size: 2.5rem;
             color: #0d47a1;
             margin-bottom: 20px;
+            text-align: center;
+            flex-grow: 1;
         }
 
         .divider {
@@ -50,8 +71,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <header>
+        <img src="TARIQ_RIAZ_logo-removebg-preview.png" alt="Tareq Riaz Logo">
         <h1>Join the Conversation</h1>
+    </header>
+
+    <div class="container">
         <div class="divider"></div>
         <p>We value your thoughts and opinions. Share your insights or ask a question about our products!</p>
         <div id="disqus_thread"></div>
