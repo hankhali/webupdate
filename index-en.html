@@ -8,6 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        /* Modal Background */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 10000; /* High z-index to ensure it is on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* Center the modal */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Width of the modal */
+        max-width: 500px; /* Optional: limit max width */
+        position: relative; /* Ensure modal content is positioned relative */
+        z-index: 10001; /* Ensure it is on top of the background */
+    }
+
+    /* Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -18,6 +58,7 @@
         header {
             display: flex;
             align-items: center;
+            /* z-index: 1; */
             justify-content: space-between;
             padding: 10px 50px;
             background-color: #f9f9f9;
@@ -378,6 +419,49 @@
 
 <body>
     <!-- Header Section -->
+    <div class="timer" id="timer">36:00:00</div>
+
+    <script>
+        function startCountdown(durationInHours) {
+            const endTime = new Date().getTime() + durationInHours * 60 * 60 * 1000;
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const remaining = endTime - now;
+
+                if (remaining <= 0) {
+                    document.getElementById('timer').textContent = '00:00:00';
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                // Calculate total hours, minutes, and seconds
+                const totalHours = Math.floor(remaining / (1000 * 60 * 60));
+                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+                // Format time as HH:MM:SS
+                const formattedTime = [
+                    totalHours.toString().padStart(2, '0'),
+                    minutes.toString().padStart(2, '0'),
+                    seconds.toString().padStart(2, '0')
+                ].join(':');
+
+                // Display the timer
+                document.getElementById('timer').textContent = formattedTime;
+            }
+
+            // Update the timer every second
+            const timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        // Start the countdown with 36 hours
+        window.onload = function() {
+            startCountdown(36);
+        };
+    </script>
+    </div>
+    </body>
     <header>
         <div class="extra-info">
             <a href="index-en.html">English</a>
@@ -389,9 +473,85 @@
             <img src="TR Logo-2.jpg" alt="Tareq Riaz Logo">
         </div>
         <div class="right-icons">
-            <a href="#">Login</a> |
-            <a href="#">0</a> <img src="path_to_wishlist_icon.png" alt="Wishlist Icon">
-            <img src="path_to_cart_icon.png" alt="Cart Icon">
+            <button id="loginBtn">Login</button>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <!-- <h2>Login</h2> -->
+                    <form id="loginForm">
+                        <label for="login-username">Username:</label><br>
+                        <input type="text" id="login-username" required><br>
+                        <label for="login-password">Password:</label><br>
+                        <input type="password" id="login-password" required><br>
+                        <button type="button" onclick="login()">Login</button><br>
+                    </form>
+                    <p id="message"></p>
+                </div>
+            </div>
+        
+            <script>
+                // Function to read credentials from file
+                async function readFile(file) {
+                    const response = await fetch(file);
+                    return response.text();
+                }
+        
+                async function login() {
+                    const username = document.getElementById('login-username').value;
+                    const password = document.getElementById('login-password').value;
+        
+                    // Read the user file
+                    const userFileContent = await readFile('users.txt');
+        
+                    // Split file content by lines
+                    const lines = userFileContent.split('\n');
+                    let validLogin = false;
+        
+                    // Check each line for matching credentials
+                    for (let line of lines) {
+                        const [storedUsername, storedPassword] = line.trim().split(':');
+                        if (storedUsername === username && storedPassword === password) {
+                            validLogin = true;
+                            break;
+                        }
+                    }
+        
+                    // Handle login result
+                    if (validLogin) {
+                        document.getElementById('message').textContent = 'Login successful!';
+                        // Redirect to landing page
+                        window.location.href = 'index-en.html';
+                    } else {
+                        document.getElementById('message').textContent = 'Invalid username or password. Please try again.';
+                    }
+                }
+        
+                // Get the modal
+                var modal = document.getElementById("loginModal");
+        
+                // Get the button that opens the modal
+                var btn = document.getElementById("loginBtn");
+        
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+        
+                // When the user clicks the button, open the modal 
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+        
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+        
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
         </div>
     </header>
 

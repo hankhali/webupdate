@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Ring Images</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        #ring-image {
+            max-width: 80%;
+            max-height: 80%;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <img id="ring-image" src="ring1.png" alt="Ring Image">
+
+    <script>
+        const image = document.getElementById('ring-image');
+        const images = [
+            'angle4.png', // Angle 4
+            'angle2.png', // Angle 2
+            'angle1.png', // Angle 1
+            'angle3.png' // Angle 3
+        ];
+
+        document.addEventListener('mousemove', (e) => {
+            const screenWidth = window.innerWidth;
+            const mouseX = e.clientX;
+
+            let index;
+            if (mouseX < 100 / 4) {
+                index = 0;
+            } else if (mouseX < 100 / 2) {
+                index = 1;
+            } else if (mouseX < 3 * 100 / 4) {
+                index = 2;
+            } else {
+                index = 3;
+            }
+
+            image.src = images[index];
+        });
+    </script>
+</body>
+</html>
