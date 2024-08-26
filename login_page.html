@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .auth-form { margin: 20px; }
+        label { display: block; margin-top: 10px; }
+        input { margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="auth-form">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+        // Function to read credentials from file
+        async function readFile(file) {
+            const response = await fetch(file);
+            return response.text();
+        }
+
+        async function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Read the user file
+            const userFileContent = await readFile('users.txt');
+
+            // Split file content by lines
+            const lines = userFileContent.split('\n');
+            let validLogin = false;
+
+            // Check each line for matching credentials
+            for (let line of lines) {
+                const [storedUsername, storedPassword] = line.trim().split(':');
+                if (storedUsername === username && storedPassword === password) {
+                    validLogin = true;
+                    break;
+                }
+            }
+
+            // Handle login result
+            if (validLogin) {
+                document.getElementById('message').textContent = 'Login successful!';
+                // Redirect to landing page
+                window.location.href = 'index-en.html';
+            } else {
+                document.getElementById('message').textContent = 'Invalid username or password. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>
