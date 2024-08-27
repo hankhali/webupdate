@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .order-number {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .order-details {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .order-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-details th, .order-details td {
+            padding: 10px;
+            border: 1px solid #eaeaea;
+        }
+        .order-details th {
+            background-color: #f2f2f2;
+        }
+        .total {
+            font-weight: bold;
+            text-align: right;
+        }
+        .addresses {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .address {
+            width: 48%;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #eaeaea;
+        }
+        .continue-browsing {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank you, Customer Name</h1>
+        <p>You'll receive a confirmation email soon.</p>
+        <p class="order-number">Order number: 10000</p>
+        
+        <div class="order-details">
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="product-image.png" alt="Product Image" style="width: 50px; float: left; margin-right: 10px;">
+                        <strong>Product Name</strong><br>
+                        Product option 1<br>
+                        Product option 2<br>
+                        Product option 3
+                    </td>
+                    <td>1</td>
+                    <td>0.00AED</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Sales Tax</td>
+                    <td>10.00AED</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Delivery</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="total">Total</td>
+                    <td>10.00AED</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="addresses">
+            <div class="address">
+                <h4>Delivery address</h4>
+                <p>Customer Name<br>
+                Street, City, State Zip Code, Country<br>
+                Phone number<br>
+                3-5 Business Days</p>
+            </div>
+            <div class="address">
+                <h4>Billing address</h4>
+                <p>Customer Name<br>
+                Street, City, State Zip Code, Country<br>
+                Phone number</p>
+            </div>
+        </div>
+        
+        <a href="#" class="continue-browsing">Continue Browsing</a>
+    </div>
+</body>
+</html>

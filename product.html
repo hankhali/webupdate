@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+        .image-section {
+            flex: 1;
+            background-color: #fefbfb;
+            display: flex;
+            flex-direction: column; /* Stack image and controls vertically */
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .image-container {
+            text-align: center;
+            background-color: #fff; /* Set background to white */
+            border-radius: 7px;
+            padding: 20px;
+            width: 100%; /* Adjust as needed */
+        }
+        #ring-image {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px; /* Space between image and quantity controls */
+        }
+        .quantity-controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .quantity-controls button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .quantity-controls span {
+            margin: 0 10px;
+            font-size: 18px;
+            min-width: 30px;
+            text-align: center;
+        }
+        .details-section {
+            flex: 1;
+            padding: 40px;
+        }
+        .details-section h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .details-section .price {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .details-section p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .details-section select, 
+        .details-section input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .details-section button {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart {
+            background-color: #f9f7f7;
+            color: #fff;
+        }
+        .buy-now {
+            background-color: #000;
+            color: #fff;
+        }
+        .product-info {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <div class="image-container">
+                <img id="ring-image" src="ring1.png" alt="Ring Image">
+                <div class="color-options">
+                    <div class="color-swatch" data-color="gold" style="background-color: #F5BD02;"></div>
+                    <div class="color-swatch" data-color="silver" style="background-color: silver;"></div>
+                    <div class="color-swatch" data-color="rose-gold" style="background-color: #b76e79;"></div>
+                </div>
+                <div class="quantity-controls">
+                    <button id="decrease-quantity">-</button>
+                    <span id="quantity">1</span>
+                    <button id="increase-quantity">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="details-section">
+            <h1>I'm a product</h1>
+            <p class="sku">SKU: 21554345566</p>
+            <p class="price">120.00 AED</p>
+            <p>I'm a product description. I'm a great place to add more details about your product such as sizing, material, care instructions, and cleaning instructions.</p>
+            <label for="color">Color</label>
+            <select id="color">
+                <option value="">Yellow Gold</option>
+                <option value="s">Rose Gold</option>
+                <option value="m">Silver Gold</option>
+            </select>
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" value="1" min="1">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+            <div class="product-info">
+                <h3>PRODUCT INFO</h3>
+                <p>I'm a product detail. I'm a great place to add more information about your product such as sizing, material, care, and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const image = document.getElementById('ring-image');
+        const images = [
+            'angle4.png', // Angle 4
+            'angle2.png', // Angle 2
+            'angle1.png', // Angle 1
+            'angle3.png' // Angle 3
+        ];
+
+        document.addEventListener('mousemove', (e) => {
+            const screenWidth = window.innerWidth;
+            const mouseX = e.clientX;
+
+            let index;
+            if (mouseX < screenWidth / 4) {
+                index = 0;
+            } else if (mouseX < screenWidth / 2) {
+                index = 1;
+            } else if (mouseX < 3 * screenWidth / 4) {
+                index = 2;
+            } else {
+                index = 3;
+            }
+
+            image.src = images[index];
+        });
+
+        // Handle color selection
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', (e) => {
+                document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+                e.target.classList.add('selected');
+                
+                const selectedColor = e.target.getAttribute('data-color');
+                // Update image source based on selected color if needed
+                // For now, it will just set the image to default
+                // Update images array if necessary
+                image.src = 'ring1.png'; // Placeholder for color-based image change
+            });
+        });
+
+        // Handle quantity change (if you need functionality for this)
+        document.getElementById('increase-quantity').addEventListener('click', () => {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+
+        document.getElementById('decrease-quantity').addEventListener('click', () => {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = Math.max(1, parseInt(quantityInput.value) - 1);
+        });
+    </script>
+</body>
+</html>

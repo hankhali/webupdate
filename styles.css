@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f8f9fa;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.payment-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    width: 55%;
+}
+
+.image-container {
+    max-width: 30%;
+    text-align: center;
+    background-color: #fff; /* Set background to white */
+    border-radius: 7px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 45%;  */
+}
+#ring-image {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.color-options {
+    margin-top: 15px;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    border-radius: 20%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.color-swatch.selected {
+    border: 2px solid #000;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.card-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    background-color: #6772e5;
+    color: #ffffff;
+    font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #5469d4;
+}
+
+#card-errors {
+    color: #fa755a;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+#payment-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+.payment-options img {
+    width: 40px; /* Adjust width as necessary */
+    height: auto; /* This maintains the aspect ratio */
+    vertical-align: middle; /* Aligns the image with the radio button */
+}
+
+.payment-options label {
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle; /* Align the radio button with the image */
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f8f9fa;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+}
+
+.image-section {
+    width: 45%; /* Adjust to fit with the payment container */
+    max-width: 500px; /* Example max-width */
+}
+
+.image-container {
+    width: 100%;
+    margin-bottom: 15px; /* Space between image and quantity controls */
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px; /* Space between image and quantity controls */
+}
+
+.quantity-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quantity-controls button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.quantity-controls span {
+    margin: 0 10px;
+    font-size: 18px;
+    min-width: 30px;
+    text-align: center;
+}
