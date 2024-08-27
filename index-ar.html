@@ -199,52 +199,66 @@
     <header>
         <div class="extra-info">
             <a href="index-ar.html">العربية</a>
-            <span class="separator">|</span>
-            <a href="policies.html">English</a>
+            <!-- <span class="separator">|</span> -->
+            <a href="index-en.html">English</a>
         </div>
         
         <div class="logo-container">
-            <img src="TR Logo-2.jpg" alt="شعار طارق رياض">
+            <img src="TARIQ_RIAZ_logo-removebg-preview.png" alt="شعار طارق رياض">
         </div>
         <div class="right-icons">
-            <a href="#">تسجيل الدخول</a> |
-            <a href="#">0</a> <img src="path_to_wishlist_icon.png" alt="أيقونة المفضلة">
-            <img src="path_to_cart_icon.png" alt="أيقونة سلة التسوق">
-        </div>
+            <button id="loginBtn">Login</button>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    
+                    <form id="loginForm">
+                        <label for="login-username">Username:</label><br>
+                        <input type="text" id="login-username" required><br>
+                        <label for="login-password">Password:</label><br>
+                        <input type="password" id="login-password" required><br>
+                        <button type="button" onclick="login()">Login</button><br>
+                    </form>
+                    <p id="message"></p>
+                </div>
+            </div>
+            </div>
+
+            <!-- <div class="hamburger-menu" onclick="toggleNav()">&#9776;</div>
+            
+                Side Navigation
+                <div class="side-nav" id="sideNav">
+                    <div class="section-title">Menu</div>
+                    <a href="#">Update Personal Information</a>
+                    <a href="#">Change Password</a>
+                    <a href="#">Your Orders</a>
+                    <a href="#">Points</a>
+                    <a href="#">Membership Benefits</a>
+                    <a href="#">Referral Program</a>
+                    <a href="#">Warranty and Return Policy</a>
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Avatar Customization</a>
+                </div> -->
+            
+            <body>
+            
+            <script>
+                function toggleNav() {
+                    var sideNav = document.getElementById("sideNav");
+                    var body = document.body;
+
+                    if (sideNav.style.right === "0px") {
+                        sideNav.style.right = "-250px"; // Hide the sidebar
+                        body.classList.remove("side-nav-open");
+                    } else {
+                        sideNav.style.right = "0px"; // Show the sidebar
+                        body.classList.add("side-nav-open");
+                    }
+                }
+            </script>
+            </body>
     </header>
     
-
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#">جديد</a>
-        <a href="#">المجوهرات</a>
-        <a href="#">الساعات</a>
-        <a href="#">اتصل بنا</a>
-    </nav>
-
-    <!-- Hero Section with Video Background -->
-    <section class="hero-section">
-        <video autoplay muted loop>
-            <source src="Screen Recording 2024-08-23 at 6.05.57 PM.mov" type="video/mp4">
-            المتصفح الخاص بك لا يدعم فيديو الخلفية.
-        </video>
-        <div class="hero-content">
-            <h1>ربيع/صيف 2024</h1>
-            <p>احتضن فن التعبير عن الذات</p>
-            <a href="#" class="btn">تسوق الآن</a>
-            <a href="#" class="btn">اكتشف المزيد</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
-        <img src="Screen%20Shot%202024-08-23%20at%205.38.11%20PM.png" alt="صورة الجواهرجي">
-        <div class="about-text">
-            <h2>رؤيتنا</h2>
-            <p>كل قطعة من قطعنا تجسد مزيجًا من الإبداع والابتكار والدقة. إن التعقيدات المذهلة لتصميماتنا الحاصلة على براءة اختراع، مع آلياتها المخفية وميزاتها القابلة للتوسع، تتحدث عن التفاني الذي نضعه في صناعة شيء مميز حقًا.</p>
-        </div>
-    </section>
-
     <!-- Main Content -->
     <main>
         <h2>لماذا تختار خواتمنا؟</h2>

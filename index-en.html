@@ -33,6 +33,99 @@
         z-index: 10001; /* Ensure it is on top of the background */
     }
 
+.logo-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo-container img {
+    width: 150px;
+}
+
+/* Right Icons Container (Login Button and Modal) */
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the hamburger, login button, etc. */
+}
+
+/* Login Button */
+#loginBtn {
+    margin: 10px 30px  ;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #0d47a1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#loginBtn:hover {
+    background-color: #082b72;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000; /* High z-index to ensure it is on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Width of the modal */
+    max-width: 500px; /* Optional: limit max width */
+    position: relative;
+    z-index: 10001;
+}
+
+/* Login Button in the Modal */
+.modal-content button {
+    background-color: #0d47a1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #082b72;
+}
+
+/* Message Display in the Modal */
+#message {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #d9534f;
+}
+
+/* Close Button for the Modal */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
     /* Close Button */
     .close {
         color: #aaa;
@@ -459,25 +552,24 @@
         window.onload = function() {
             startCountdown(36);
         };
-    </script>
+        </script>
     </div>
-    </body>
+    
     <header>
         <div class="extra-info">
             <a href="index-en.html">English</a>
-            <span class="separator">|</span>
             <a href="index-ar.html">العربية</a>
         </div>
         
         <div class="logo-container">
-            <img src="TR Logo-2.jpg" alt="Tareq Riaz Logo">
+            <img src="TARIQ_RIAZ_logo-removebg-preview.png" alt="Tareq Riaz Logo">
         </div>
         <div class="right-icons">
             <button id="loginBtn">Login</button>
             <div id="loginModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
-                    <!-- <h2>Login</h2> -->
+                    
                     <form id="loginForm">
                         <label for="login-username">Username:</label><br>
                         <input type="text" id="login-username" required><br>
@@ -488,14 +580,52 @@
                     <p id="message"></p>
                 </div>
             </div>
-        
+
+            <div class="hamburger-menu" onclick="toggleNav()">&#9776;</div>
+            
+                <!-- Side Navigation -->
+                <div class="side-nav" id="sideNav">
+                    <div class="section-title">Menu</div>
+                    <a href="#">Update Personal Information</a>
+                    <a href="#">Change Password</a>
+                    <a href="#">Your Orders</a>
+                    <a href="#">Points</a>
+                    <a href="#">Membership Benefits</a>
+                    <a href="#">Referral Program</a>
+                    <a href="#">Warranty and Return Policy</a>
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Avatar Customization</a>
+                </div>
+            
+            <body>
+                
+            
+                <!-- Your existing content -->
+                <!-- Header Section, Navigation Bar, Hero Section, etc. -->
+            
+                <script>
+function toggleNav() {
+    var sideNav = document.getElementById("sideNav");
+    var body = document.body;
+
+    if (sideNav.style.right === "0px") {
+        sideNav.style.right = "-250px"; // Hide the sidebar
+        body.classList.remove("side-nav-open");
+    } else {
+        sideNav.style.right = "0px"; // Show the sidebar
+        body.classList.add("side-nav-open");
+    }
+}
+
+                </script>
+            </body>
             <script>
                 // Function to read credentials from file
                 async function readFile(file) {
                     const response = await fetch(file);
                     return response.text();
                 }
-        
+                
                 async function login() {
                     const username = document.getElementById('login-username').value;
                     const password = document.getElementById('login-password').value;
@@ -547,7 +677,7 @@
         
                 // When the user clicks anywhere outside of the modal, close it
                 window.onclick = function(event) {
-                    if (event.target == modal) {
+                    if (event.target == modal) {,, 
                         modal.style.display = "none";
                     }
                 }
@@ -555,20 +685,29 @@
         </div>
     </header>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#">New In</a>
-        <a href="#">Jewellery</a>
-        <a href="#">Watches</a>
-        <a href="#">Contact us</a>
-    </nav>
+    <!-- Navigation Bar ### -->
+    <!-- <div class="hamburger-menu" onclick="toggleNav()">&#9776;</div> -->
+            
+    <!-- Side Navigation -->
+    <!-- <div class="side-nav" id="sideNav">
+        <div class="section-title">Menu</div>
+        <a href="#">Update Personal Information</a>
+        <a href="#">Change Password</a>
+        <a href="#">Your Orders</a>
+        <a href="#">Points</a>
+        <a href="#">Membership Benefits</a>
+        <a href="#">Referral Program</a>
+        <a href="#">Warranty and Return Policy</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Avatar Customization</a>
+    </div> -->
 
     <!-- Hero Section with Video Background -->
-    <section class="hero-section">
+    <!-- <section class="hero-section">
         <video autoplay muted loop>
-            <source src="Screen Recording 2024-08-23 at 6.05.57 PM.mov" type="video/mp4">
+            <source src="Screen Recording 2024-08-23 at 6.05.57 PM.mov" type="video/mp4"> -->
             <!-- Fallback image if video does not load -->
-            <img src="fallback.jpg" alt="Spring/Summer 2024 Collection">
+            <!-- <img src="fallback.jpg" alt="Spring/Summer 2024 Collection">
         </video>
         <div class="hero-content">
             <h1>Spring/Summer 2024</h1>
@@ -576,22 +715,23 @@
             <a href="#" class="btn">Shop now</a>
             <a href="#" class="btn">Discover more</a>
         </div>
-    </section>
+    </section> -->
 
     <!-- Floating CTA Button -->
-    <a href="#" class="floating-cta">Explore Collection</a>
+    <a href="https://www.tariqriaz.com/" class="floating-cta" target="_blank">Explore Collection</a>
+
 
     <!-- About Section -->
-    <section class="about-section">
+    <!-- <section class="about-section">
         <img src="Screen%20Shot%202024-08-23%20at%205.38.11%20PM.png" alt="Jeweler Image">
         <div class="about-text">
             <h2>About me </h2>
             <p>Designer Tariq Riaz traveled a unique path on his way to discovering his love for jewelry design. When he was a student at the University of Arizona, Tucson, the annual influx of gem dealers and enthusiasts that flooded the town each February was just a vague distraction. He never imagined he’d one day be immersed in a world of precious metals and gemstones. While he’d long had hobbies as a maker, he was always analytically minded, which compelled him to begin his professional career in engineering and robotics, solving problems that focused on the integrities and architecture of design. He excelled in his profession, rising up the ranks, marrying his wife, and eventually moving with her to the Abu Dhabi.</p>
         </div>
-    </section>
+    </section> -->
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- <section class="testimonials-section">
         <h2>What Our Customers Say</h2>
         <div class="testimonial">
             "These rings are a masterpiece of craftsmanship! The resizable feature is not only innovative but also makes them perfect for gifting."
@@ -601,10 +741,10 @@
             "I was amazed by the quality and precision of these designs. Truly unique pieces that stand out in every setting."
             <div class="testimonial-author">— John D.</div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Featured Products Section -->
-    <section class="featured-products">
+    <!-- <section class="featured-products">
         <h2>Our Best Sellers</h2>
         <div class="products-grid">
             <div class="product">
@@ -623,7 +763,7 @@
                 <p>$950</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Quiz Section -->
     <section class="quiz-section">
@@ -716,6 +856,82 @@
             document.getElementById('disqus_section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-</body>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareq Riaz - Resizable Rare Rings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Hamburger Menu Icon */
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    font-size: 35px;
+    cursor: pointer;
+    position: fixed;
+    /* top: 20px; */
+    right: 20px; /* Change this from 'left: 20px' to 'right: 20px' */
+    z-index: 1001;
+    color: #0d47a1;
+}
+
+
+        /* Side Navigation Bar */
+        .side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: -250px; /* Change this from 'left: -250px' to 'right: -250px' */
+    background: url('_ (2) copy.jpeg') no-repeat center center; /* Set background image */
+    background-size: cover; /* Ensure the image covers the entire sidebar */
+    padding-top: 20px;
+    color: #142b90;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.side-nav a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #1e1c91;
+    display: block;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.side-nav a:hover {
+    background-color: rgba(8, 43, 114, 0.6); /* A slight overlay for hover */
+    padding-left: 30px;
+}
+
+.side-nav .section-title {
+    padding: 30px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #1e1c91;
+    margin-top: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+
+        /* Adjusting the rest of the page to make space for the side nav */
+        body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin-right: 0;
+    transition: margin-right 0.3s;
+}
+
+        /* When the sidebar is open, shift the body content */
+        .side-nav-open body {
+    margin-right: 250px; /* Shift the content to the left when the menu is open */
+}
+    </style>
+
 
 </html>
