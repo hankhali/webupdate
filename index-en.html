@@ -9,6 +9,20 @@
 
     <style>
         /* Modal Background */
+
+
+        body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('angle 1 (1).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+}
+
+
     .modal {
         display: none; /* Hidden by default */
         position: fixed;
@@ -141,11 +155,98 @@
         cursor: pointer;
     }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-        }
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-image: url('angle 1 (1).png'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed */
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    color: #fff;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.hero-content .btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #0d47a1;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero-content .btn:hover {
+    background-color: #082b72;
+    transform: scale(1.05);
+}
+
+.backstory-section {
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Ensure content is above the background */
+}
+
+.backstory-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #0d47a1;
+    margin-bottom: 20px;
+}
+
+.backstory-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.photos-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.backstory-photo {
+    width: 45%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: auto;
+}
 
         /* Header Styling */
         header {
@@ -225,11 +326,120 @@
 
         /* Hero Section with Video Background */
         .hero-section {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url('angle 1 (1).pngg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('angle 1 (1).png'); /* Your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This makes the background stay in place */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    color: #fff;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.hero-content .btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #0d47a1;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero-content .btn:hover {
+    background-color: #082b72;
+    transform: scale(1.05);
+}
+
+.backstory-section {
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+.backstory-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #0d47a1;
+    margin-bottom: 20px;
+}
+
+.backstory-text {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-container {
+    position: relative;
+}
+
+.photo-container img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 300px;
+}
+
+.photo-caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-style: italic;
+}
+
 
         .hero-section video {
             position: absolute;
@@ -460,13 +670,29 @@
         }
 
         /* Footer Styling */
+
+
+        main {
+    flex: 1;
+}
+
+footer {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: left;
+}
         footer {
-            background-color: #f9f9f9;
-            padding: 40px 0;
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            text-align: left;
-        }
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
         .footer-links {
             display: flex;
@@ -719,10 +945,10 @@
     <a href="https://www.tariqriaz.com/" class="floating-cta" target="_blank">Explore Collection</a>
 
     <!-- Quiz Section -->
-    <section class="quiz-section">
+    <!-- <section class="quiz-section">
         <h2>Find Your Perfect Ring</h2>
         <p>Take our quick quiz to discover the ring that best matches your style and personality.</p>
-        <a href="#" class="btn">Start the Quiz</a>
+        <a href="#" class="btn">Start the Quiz</a> -->
     </section>
 
     <!-- Disqus Comment Section -->
@@ -736,6 +962,42 @@
         </div>
         <div id="disqus_thread" style="max-width: 800px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
     </section>
+
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>The Ring of Elegance</h1>
+            <p>An exquisite piece inspired by timeless beauty.</p>
+            <a href="#backstory-section" class="btn">Learn More</a>
+        </div>
+    </section>
+    
+    <section id="backstory-section" class="backstory-section">
+        <h2 class="backstory-title">The Story Behind the Ring</h2>
+        <p class="backstory-text">
+            This exquisite ring was inspired by the rich heritage and timeless beauty of the Arabian Peninsula. Crafted with precision and passion, it symbolizes not only elegance but also the resilience and grace of the culture it represents.
+        </p>
+        
+        <div class="photos-grid">
+            <div class="photo-container">
+                <img src="angle 1 (1).png" alt="Inspiration 1">
+                <p class="photo-caption">The majestic dunes that inspired the flowing design of the ring.</p>
+            </div>
+            <div class="photo-container">
+                <img src="angle2.png" alt="Inspiration 2">
+                <p class="photo-caption">The intricate patterns of traditional Arabian art that influenced the detailing.</p>
+            </div>
+            <div class="photo-container">
+                <img src="angle3.png" alt="Inspiration 3">
+                <p class="photo-caption">The deep, rich colors of the desert at sunset, reflected in the gemstone.</p>
+            </div>
+            <div class="photo-container">
+                <img src="angle4.png" alt="Inspiration 4">
+                <p class="photo-caption">The enduring strength of ancient architecture, mirrored in the ring's solid structure.</p>
+            </div>
+        </div>
+    </section>
+    
 
     <!-- Disqus Embed Script -->
     <script>
