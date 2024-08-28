@@ -583,187 +583,140 @@
 
             <div class="hamburger-menu" onclick="toggleNav()">&#9776;</div>
             
-                <!-- Side Navigation -->
-                <div class="side-nav" id="sideNav">
-                    <div class="section-title">Menu</div>
-                    <a href="#">Update Personal Information</a>
-                    <a href="#">Change Password</a>
-                    <a href="#">Your Orders</a>
-                    <a href="#">Points</a>
-                    <a href="#">Membership Benefits</a>
-                    <a href="#">Referral Program</a>
-                    <a href="#">Warranty and Return Policy</a>
-                    <a href="#">Terms and Conditions</a>
-                    <a href="#">Avatar Customization</a>
-                </div>
-            
-            <body>
-                
-            
-                <!-- Your existing content -->
-                <!-- Header Section, Navigation Bar, Hero Section, etc. -->
-            
-                <script>
-function toggleNav() {
-    var sideNav = document.getElementById("sideNav");
-    var body = document.body;
-
-    if (sideNav.style.right === "0px") {
-        sideNav.style.right = "-250px"; // Hide the sidebar
-        body.classList.remove("side-nav-open");
-    } else {
-        sideNav.style.right = "0px"; // Show the sidebar
-        body.classList.add("side-nav-open");
-    }
-}
-
-                </script>
-            </body>
-            <script>
-                // Function to read credentials from file
-                async function readFile(file) {
-                    const response = await fetch(file);
-                    return response.text();
-                }
-                
-                async function login() {
-                    const username = document.getElementById('login-username').value;
-                    const password = document.getElementById('login-password').value;
-        
-                    // Read the user file
-                    const userFileContent = await readFile('users.txt');
-        
-                    // Split file content by lines
-                    const lines = userFileContent.split('\n');
-                    let validLogin = false;
-        
-                    // Check each line for matching credentials
-                    for (let line of lines) {
-                        const [storedUsername, storedPassword] = line.trim().split(':');
-                        if (storedUsername === username && storedPassword === password) {
-                            validLogin = true;
-                            break;
-                        }
-                    }
-        
-                    // Handle login result
-                    if (validLogin) {
-                        document.getElementById('message').textContent = 'Login successful!';
-                        // Redirect to landing page
-                        window.location.href = 'index-en.html';
-                    } else {
-                        document.getElementById('message').textContent = 'Invalid username or password. Please try again.';
-                    }
-                }
-        
-                // Get the modal
-                var modal = document.getElementById("loginModal");
-        
-                // Get the button that opens the modal
-                var btn = document.getElementById("loginBtn");
-        
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
-        
-                // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                    modal.style.display = "block";
-                }
-        
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
-                    modal.style.display = "none";
-                }
-        
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                    if (event.target == modal) {,, 
-                        modal.style.display = "none";
-                    }
-                }
-            </script>
+            <div class="side-nav" id="sideNav">
+                <div class="section-title">Menu</div>
+                <a href="#">Update Personal Information</a>
+                <a href="#">Change Password</a>
+                <a href="#">Your Orders</a>
+                <a href="#">Points</a>
+                <a href="#">Membership Benefits</a>
+                <a href="#">Referral Program</a>
+                <a href="#">Warranty and Return Policy</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Avatar Customization</a>
+            </div>
         </div>
     </header>
 
-    <!-- Navigation Bar ### -->
-    <!-- <div class="hamburger-menu" onclick="toggleNav()">&#9776;</div> -->
-            
-    <!-- Side Navigation -->
-    <!-- <div class="side-nav" id="sideNav">
-        <div class="section-title">Menu</div>
-        <a href="#">Update Personal Information</a>
-        <a href="#">Change Password</a>
-        <a href="#">Your Orders</a>
-        <a href="#">Points</a>
-        <a href="#">Membership Benefits</a>
-        <a href="#">Referral Program</a>
-        <a href="#">Warranty and Return Policy</a>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Avatar Customization</a>
-    </div> -->
+    <script>
+        function toggleNav() {
+            var sideNav = document.getElementById("sideNav");
+            var body = document.body;
 
-    <!-- Hero Section with Video Background -->
-    <!-- <section class="hero-section">
-        <video autoplay muted loop>
-            <source src="Screen Recording 2024-08-23 at 6.05.57 PM.mov" type="video/mp4"> -->
-            <!-- Fallback image if video does not load -->
-            <!-- <img src="fallback.jpg" alt="Spring/Summer 2024 Collection">
-        </video>
-        <div class="hero-content">
-            <h1>Spring/Summer 2024</h1>
-            <p>Embrace the art of self-expression</p>
-            <a href="#" class="btn">Shop now</a>
-            <a href="#" class="btn">Discover more</a>
+            if (sideNav.style.right === "0px") {
+                sideNav.style.right = "-250px"; // Hide the sidebar
+                body.classList.remove("side-nav-open");
+            } else {
+                sideNav.style.right = "0px"; // Show the sidebar
+                body.classList.add("side-nav-open");
+            }
+        }
+
+        async function readFile(file) {
+            const response = await fetch(file);
+            return response.text();
+        }
+        
+        async function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Read the user file
+            const userFileContent = await readFile('users.txt');
+
+            // Split file content by lines
+            const lines = userFileContent.split('\n');
+            let validLogin = false;
+
+            // Check each line for matching credentials
+            for (let line of lines) {
+                const [storedUsername, storedPassword] = line.trim().split(':');
+                if (storedUsername === username && storedPassword === password) {
+                    validLogin = true;
+                    break;
+                }
+            }
+
+            // Handle login result
+            if (validLogin) {
+                document.getElementById('message').textContent = 'Login successful!';
+                // Redirect to landing page
+                window.location.href = 'index-en.html';
+            } else {
+                document.getElementById('message').textContent = 'Invalid username or password. Please try again.';
+            }
+        }
+
+        // Get the modal
+        var modal = document.getElementById("loginModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("loginBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function startCountdown(durationInHours) {
+            const endTime = new Date().getTime() + durationInHours * 60 * 60 * 1000;
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const remaining = endTime - now;
+
+                if (remaining <= 0) {
+                    document.getElementById('timer').textContent = '00:00:00';
+                    clearInterval(timerInterval);
+                    return;
+                }
+
+                // Calculate total hours, minutes, and seconds
+                const totalHours = Math.floor(remaining / (1000 * 60 * 60));
+                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+                // Format time as HH:MM:SS
+                const formattedTime = [
+                    totalHours.toString().padStart(2, '0'),
+                    minutes.toString().padStart(2, '0'),
+                    seconds.toString().padStart(2, '0')
+                ].join(':');
+
+                // Display the timer
+                document.getElementById('timer').textContent = formattedTime;
+            }
+
+            // Update the timer every second
+            const timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        // Start the countdown with 36 hours
+        window.onload = function() {
+            startCountdown(36);
+        };
+    </script>
         </div>
-    </section> -->
+    </header>
+
 
     <!-- Floating CTA Button -->
     <a href="https://www.tariqriaz.com/" class="floating-cta" target="_blank">Explore Collection</a>
-
-
-    <!-- About Section -->
-    <!-- <section class="about-section">
-        <img src="Screen%20Shot%202024-08-23%20at%205.38.11%20PM.png" alt="Jeweler Image">
-        <div class="about-text">
-            <h2>About me </h2>
-            <p>Designer Tariq Riaz traveled a unique path on his way to discovering his love for jewelry design. When he was a student at the University of Arizona, Tucson, the annual influx of gem dealers and enthusiasts that flooded the town each February was just a vague distraction. He never imagined he’d one day be immersed in a world of precious metals and gemstones. While he’d long had hobbies as a maker, he was always analytically minded, which compelled him to begin his professional career in engineering and robotics, solving problems that focused on the integrities and architecture of design. He excelled in his profession, rising up the ranks, marrying his wife, and eventually moving with her to the Abu Dhabi.</p>
-        </div>
-    </section> -->
-
-    <!-- Testimonials Section -->
-    <!-- <section class="testimonials-section">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial">
-            "These rings are a masterpiece of craftsmanship! The resizable feature is not only innovative but also makes them perfect for gifting."
-            <div class="testimonial-author">— Sarah M.</div>
-        </div>
-        <div class="testimonial">
-            "I was amazed by the quality and precision of these designs. Truly unique pieces that stand out in every setting."
-            <div class="testimonial-author">— John D.</div>
-        </div>
-    </section> -->
-
-    <!-- Featured Products Section -->
-    <!-- <section class="featured-products">
-        <h2>Our Best Sellers</h2>
-        <div class="products-grid">
-            <div class="product">
-                <img src="UAE50_Qasr-1855_Set-1_Red_Top_3D.jpg" alt="Product 1">
-                <h3>Classic Resizable Ring</h3>
-                <p>$1200</p>
-            </div>
-            <div class="product">
-                <img src="UAE50_Jarrah_Set1_Rose.jpg" alt="Product 2">
-                <h3>Luxury Gold Band</h3>
-                <p>$1800</p>
-            </div>
-            <div class="product">
-                <img src="UAE50_JARAH-ANGLE-RG.jpg" alt="Product 3">
-                <h3>Modern Minimalist Ring</h3>
-                <p>$950</p>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Quiz Section -->
     <section class="quiz-section">
