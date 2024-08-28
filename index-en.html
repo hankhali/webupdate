@@ -56,6 +56,8 @@
     width: 150px;
 }
 
+
+
 /* Right Icons Container (Login Button and Modal) */
 .right-icons {
     display: flex;
@@ -164,22 +166,27 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Keeps the background fixed */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up at least the full height of the viewport */
 }
 
+
 .hero-section {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
+    flex: 1; /* This makes the hero section take up the remaining space */
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .hero-content {
-    color: #fff;
+    color: #406b96;
     text-align: center;
     font-family: 'Playfair Display', serif;
 }
+
+
 
 .hero-content h1 {
     font-size: 4rem;
@@ -197,7 +204,7 @@
     padding: 15px 30px;
     font-size: 1.2rem;
     background-color: #0d47a1;
-    color: #fff;
+    color: #4c5ba2;
     text-decoration: none;
     margin: 0 10px;
     transition: background-color 0.3s, transform 0.2s;
@@ -209,6 +216,7 @@
 }
 
 .backstory-section {
+    flex: 1;
     padding: 50px 20px;
     text-align: center;
     position: relative;
@@ -358,8 +366,9 @@ body {
     align-items: center;
 }
 
+
 .hero-content {
-    color: #fff;
+    color: #403b7d;
     text-align: center;
     font-family: 'Playfair Display', serif;
 }
@@ -380,7 +389,7 @@ body {
     padding: 15px 30px;
     font-size: 1.2rem;
     background-color: #0d47a1;
-    color: #fff;
+    color: #697cc7;
     text-decoration: none;
     margin: 0 10px;
     transition: background-color 0.3s, transform 0.2s;
@@ -469,7 +478,7 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #fff;
+            color: #12406e;
             text-align: center;
             z-index: 2;
             font-family: 'Playfair Display', serif;
@@ -682,103 +691,141 @@ footer {
     font-family: 'Poppins', sans-serif;
     color: #333;
     text-align: left;
-}
-        footer {
-    background-color: #f9f9f9;
-    padding: 40px 0;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    text-align: left;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    margin-top: auto; /* Push the footer to the bottom of the page */
 }
 
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .footer-links h4 {
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
+.footer-links h4 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
 
-        .footer-links ul {
-            list-style-type: none;
-            padding: 0;
-        }
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        .footer-links ul li {
-            margin-bottom: 5px;
-        }
+.footer-links ul li {
+    margin-bottom: 5px;
+}
 
-        .footer-links ul li a {
-            text-decoration: none;
-            color: #666;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
+.footer-links ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
 
-        .footer-links ul li a:hover {
-            color: #0d47a1;
-        }
+.footer-links ul li a:hover {
+    color: #0d47a1;
+}
 
-        footer p {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 1rem;
-            color: #666;
-        }
+footer p {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1rem;
+    color: #666;
+}
+.timer-box {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Adjust this value to position the box more to the right or left */
+    transform: translateY(-50%); /* Centers the box vertically */
+    background-color: #0d47a1; /* Semi-transparent dark background */
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1000; /* Ensures it's above other elements */
+    box-shadow: 0 4px 10px #0d47a1; /* Adds a subtle shadow for depth */
+    text-align: center; /* Centers the text inside the box */
+}
+
+.timer-box:hover {
+    background-color: #0d47a1; /* Darken background on hover */
+    transform: translateY(-50%) scale(1.05); /* Slight scale effect on hover */
+}
+
+/* <head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareq Riaz - Resizable Rare Rings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style> */
+        /* Hamburger Menu Icon */
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    font-size: 35px;
+    cursor: pointer;
+    position: fixed;
+    /* top: 20px; */
+    right: 20px; /* Change this from 'left: 20px' to 'right: 20px' */
+    z-index: 1001;
+    color: #0d47a1;
+}
+
+
+        /* Side Navigation Bar */
+        .side-nav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: -250px; /* Change this from 'left: -250px' to 'right: -250px' */
+    background: url('_ (2) copy.jpeg') no-repeat center center; /* Set background image */
+    background-size: cover; /* Ensure the image covers the entire sidebar */
+    padding-top: 20px;
+    color: #142b90;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.side-nav a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #1e1c91;
+    display: block;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+.side-nav a:hover {
+    background-color: rgba(8, 43, 114, 0.6); /* A slight overlay for hover */
+    padding-left: 30px;
+}
+
+.side-nav .section-title {
+    padding: 30px 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #1e1c91;
+    margin-top: 20px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+}
+
+        /* Adjusting the rest of the page to make space for the side nav */
+        body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin-right: 0;
+    transition: margin-right 0.3s;
+}
+
+        /* When the sidebar is open, shift the body content */
+        .side-nav-open body {
+    margin-right: 250px; /* Shift the content to the left when the menu is open */
+}
     </style>
 </head>
-
-<body>
-    <!-- Header Section -->
-    <div class="timer" id="timer">36:00:00</div>
-
-    <script>
-        function startCountdown(durationInHours) {
-            const endTime = new Date().getTime() + durationInHours * 60 * 60 * 1000;
-
-            function updateTimer() {
-                const now = new Date().getTime();
-                const remaining = endTime - now;
-
-                if (remaining <= 0) {
-                    document.getElementById('timer').textContent = '00:00:00';
-                    clearInterval(timerInterval);
-                    return;
-                }
-
-                // Calculate total hours, minutes, and seconds
-                const totalHours = Math.floor(remaining / (1000 * 60 * 60));
-                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-                // Format time as HH:MM:SS
-                const formattedTime = [
-                    totalHours.toString().padStart(2, '0'),
-                    minutes.toString().padStart(2, '0'),
-                    seconds.toString().padStart(2, '0')
-                ].join(':');
-
-                // Display the timer
-                document.getElementById('timer').textContent = formattedTime;
-            }
-
-            // Update the timer every second
-            const timerInterval = setInterval(updateTimer, 1000);
-        }
-
-        // Start the countdown with 36 hours
-        window.onload = function() {
-            startCountdown(36);
-        };
-        </script>
     </div>
     
     <header>
@@ -963,41 +1010,47 @@ footer {
         <div id="disqus_thread" style="max-width: 800px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);"></div>
     </section>
 
-
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>The Ring of Elegance</h1>
-            <p>An exquisite piece inspired by timeless beauty.</p>
-            <a href="#backstory-section" class="btn">Learn More</a>
+    <body>
+        <!-- Floating Timer Box -->
+        <div class="timer-box">
+            <div class="timer" id="timer">36:00:00</div>
         </div>
-    </section>
     
-    <section id="backstory-section" class="backstory-section">
-        <h2 class="backstory-title">The Story Behind the Ring</h2>
-        <p class="backstory-text">
-            This exquisite ring was inspired by the rich heritage and timeless beauty of the Arabian Peninsula. Crafted with precision and passion, it symbolizes not only elegance but also the resilience and grace of the culture it represents.
-        </p>
-        
-        <div class="photos-grid">
-            <div class="photo-container">
-                <img src="angle 1 (1).png" alt="Inspiration 1">
-                <p class="photo-caption">The majestic dunes that inspired the flowing design of the ring.</p>
+        <!-- Hero Section with Background Image and CTA -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>The Ring of Elegance</h1>
+                <p>An exquisite piece inspired by timeless beauty.</p>
+                <a href="#backstory-section" class="btn">Learn More</a>
             </div>
-            <div class="photo-container">
-                <img src="angle2.png" alt="Inspiration 2">
-                <p class="photo-caption">The intricate patterns of traditional Arabian art that influenced the detailing.</p>
-            </div>
-            <div class="photo-container">
-                <img src="angle3.png" alt="Inspiration 3">
-                <p class="photo-caption">The deep, rich colors of the desert at sunset, reflected in the gemstone.</p>
-            </div>
-            <div class="photo-container">
-                <img src="angle4.png" alt="Inspiration 4">
-                <p class="photo-caption">The enduring strength of ancient architecture, mirrored in the ring's solid structure.</p>
-            </div>
-        </div>
-    </section>
+        </section>
     
+        <!-- Backstory Section with Images -->
+        <section id="backstory-section" class="backstory-section">
+            <h2 class="backstory-title">The Story Behind the Ring</h2>
+            <p class="backstory-text">
+                This exquisite ring was inspired by the rich heritage and timeless beauty of the Arabian Peninsula. Crafted with precision and passion, it symbolizes not only elegance but also the resilience and grace of the culture it represents.
+            </p>
+            
+            <div class="photos-grid">
+                <div class="photo-container">
+                    <img src="angle 1 (1).png" alt="Inspiration 1">
+                    <p class="photo-caption">The majestic dunes that inspired the flowing design of the ring.</p>
+                </div>
+                <div class="photo-container">
+                    <img src="angle 1.png" alt="Inspiration 2">
+                    <p class="photo-caption">The intricate patterns of traditional Arabian art that influenced the detailing.</p>
+                </div>
+                <div class="photo-container">
+                    <img src="angle 2.png" alt="Inspiration 3">
+                    <p class="photo-caption">The deep, rich colors of the desert at sunset, reflected in the gemstone.</p>
+                </div>
+                <div class="photo-container">
+                    <img src="angle 2 (1).png" alt="Inspiration 4">
+                    <p class="photo-caption">The enduring strength of ancient architecture, mirrored in the ring's solid structure.</p>
+                </div>
+            </div>
+        </section>
 
     <!-- Disqus Embed Script -->
     <script>
@@ -1071,82 +1124,4 @@ footer {
             document.getElementById('disqus_section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head><meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareq Riaz - Resizable Rare Rings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* Hamburger Menu Icon */
-/* Hamburger Menu Icon */
-.hamburger-menu {
-    font-size: 35px;
-    cursor: pointer;
-    position: fixed;
-    /* top: 20px; */
-    right: 20px; /* Change this from 'left: 20px' to 'right: 20px' */
-    z-index: 1001;
-    color: #0d47a1;
-}
-
-
-        /* Side Navigation Bar */
-        .side-nav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    right: -250px; /* Change this from 'left: -250px' to 'right: -250px' */
-    background: url('_ (2) copy.jpeg') no-repeat center center; /* Set background image */
-    background-size: cover; /* Ensure the image covers the entire sidebar */
-    padding-top: 20px;
-    color: #142b90;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.3s;
-}
-
-.side-nav a {
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 0.8rem;
-    color: #1e1c91;
-    display: block;
-    transition: background-color 0.3s, padding-left 0.3s;
-}
-
-.side-nav a:hover {
-    background-color: rgba(8, 43, 114, 0.6); /* A slight overlay for hover */
-    padding-left: 30px;
-}
-
-.side-nav .section-title {
-    padding: 30px 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #1e1c91;
-    margin-top: 20px;
-    text-transform: uppercase;
-    border-bottom: 1px solid #ddd;
-}
-
-        /* Adjusting the rest of the page to make space for the side nav */
-        body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
-    margin-right: 0;
-    transition: margin-right 0.3s;
-}
-
-        /* When the sidebar is open, shift the body content */
-        .side-nav-open body {
-    margin-right: 250px; /* Shift the content to the left when the menu is open */
-}
-    </style>
-
-
 </html>
